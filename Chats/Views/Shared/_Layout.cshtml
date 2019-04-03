@@ -28,7 +28,9 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; @DateTime.Now.Year г.
+            &copy; @DateTime.Now.Year г.&nbsp;&nbsp;
+            <a asp-area="" asp-controller="Home" asp-action="Privacy"
+               style="text-decoration:none; color:#808080">Политика конфидециальности</a>
         </div>
     </footer>
 
@@ -55,3 +57,4 @@
     @RenderSection("Scripts", required: false)
 </body>
 </html>
+
