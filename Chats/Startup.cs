@@ -39,9 +39,17 @@ namespace Chats
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
-            services.AddDefaultIdentity<IdentityUser>()
+            services.AddDefaultIdentity<IdentityUser>(opts =>
+            {
+                opts.User.AllowedUserNameCharacters = null; //valid characters in the username
+                opts.Password.RequiredLength = 4;   // minimum length
+                opts.Password.RequireNonAlphanumeric = false;   // need for alphanumeric characters
+                opts.Password.RequireLowercase = false; // need for lowercase characters
+                opts.Password.RequireUppercase = false; // need for uppercase characters
+            })
                 .AddDefaultUI(UIFramework.Bootstrap4)
-                .AddEntityFrameworkStores<ApplicationDbContext>();
+                .AddEntityFrameworkStores<ApplicationDbContext>()
+                .AddErrorDescriber<TranslatorIdentityErrorDescriber>();
 
             services.AddMvc()
                 .AddNewtonsoftJson();
@@ -77,6 +85,29 @@ namespace Chats
 
             app.UseAuthentication();
             app.UseAuthorization();
+        }
+    }
+
+    //This is a redefinition of the IdentityErrorDescriber class to translate messages.
+    public class TranslatorIdentityErrorDescriber : IdentityErrorDescriber
+    {
+        public override IdentityError PasswordRequiresDigit()
+        {
+            return new IdentityError
+            {
+                Code = nameof(PasswordRequiresDigit),
+                Description = "Пароли должны содержать хотя бы одну цифру ('0'-'9')."
+            };
+
+        }
+
+        public override IdentityError LoginAlreadyAssociated()
+        {
+            return new IdentityError
+            {
+                Code = nameof(LoginAlreadyAssociated),
+                Description = "Аккаунт {0} уже существует." // ??????
+            };
         }
     }
 }
