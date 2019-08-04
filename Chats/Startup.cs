@@ -1,16 +1,10 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using Chats.Data;
 using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.UI;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.UI;
 using Microsoft.EntityFrameworkCore;
-using Chats.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -47,6 +41,7 @@ namespace Chats
                 opts.Password.RequireLowercase = false; // need for lowercase characters
                 opts.Password.RequireUppercase = false; // need for uppercase characters
             })
+
                 .AddDefaultUI(UIFramework.Bootstrap4)
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddErrorDescriber<TranslatorIdentityErrorDescriber>();
@@ -100,14 +95,16 @@ namespace Chats
             };
 
         }
-
-        public override IdentityError LoginAlreadyAssociated()
+        public override IdentityError DuplicateUserName(string userName)
         {
-            return new IdentityError
+            return new IdentityError()
             {
-                Code = nameof(LoginAlreadyAssociated),
-                Description = "Аккаунт {0} уже существует." // ??????
+                Code = nameof(DuplicateUserName),
+                Description = string.Format("Логин {0} уже существует.", userName)
             };
+
         }
     }
+
 }
+

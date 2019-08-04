@@ -5,21 +5,28 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Chats.Models;
+using Chats.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace Chats.Controllers
 {
     public class HomeController : Controller
     {
-        public IActionResult Index()
+        private ApplicationDbContext db;
+        public HomeController(ApplicationDbContext context)
         {
-            return View();
+            db = context;
+        }
+        public async Task<IActionResult> Index()
+        {     
+            return View(await db.Topics.ToListAsync());
         }
 
         public IActionResult Privacy()
         {
             return View();
         }
-
+       
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

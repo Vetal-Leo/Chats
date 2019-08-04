@@ -1,4 +1,6 @@
-﻿@{
+﻿@using Chats.Models
+@model IEnumerable<Topics>
+@{
     ViewData["Title"] = "Home Page";
 }
 
@@ -28,25 +30,8 @@
 
 <h2 style="text-align:center">Темы для чата</h2>
 <div style="display: block; margin: auto; width : 8cm;">
-    <button type="button" class="btn btn-topics">Друзья</button>
-    <button type="button" class="btn btn-topics">Политика</button>
-    <button type="button" class="btn btn-topics">Любовь и отношения</button>
-    <button type="button" class="btn btn-topics">Секс</button>
-    <button type="button" class="btn btn-topics">Деньги и финансы</button>
-    <button type="button" class="btn btn-topics">Мечты</button>
-    <button type="button" class="btn btn-topics">Отпуск и отдых</button>
-    <button type="button" class="btn btn-topics">Мода и стили</button>
-    <button type="button" class="btn btn-topics">Кино</button>
-    <button type="button" class="btn btn-topics">Музыка</button>
-    <button type="button" class="btn btn-topics">События и праздники</button>
-    <button type="button" class="btn btn-topics">Спорт</button>
-    <button type="button" class="btn btn-topics">Футбол</button>
-    <button type="button" class="btn btn-topics">Хобби</button>
-    <button type="button" class="btn btn-topics">Учёба</button>
-    <button type="button" class="btn btn-topics">Еда и блюда</button>
-    <button type="button" class="btn btn-topics">Искусство</button>
-    <button type="button" class="btn btn-topics">Машины и мотоциклы</button>
-    <button type="button" class="btn btn-topics">Мода и стили</button>
-    <button type="button" class="btn btn-topics">Работа и бизнес</button>
-    <button type="button" class="btn btn-topics">Медицина</button>
+    @foreach (Topics p in Model)
+    {
+        <button type="button" class="btn btn-topics" id="@p.Id" onclick="location.href ='https://www.google.com/?gws_rd=ssl'">@p.Topic</button>
+    }
 </div>
