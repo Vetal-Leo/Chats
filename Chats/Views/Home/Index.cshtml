@@ -32,6 +32,6 @@
 <div style="display: block; margin: auto; width : 8cm;">
     @foreach (Topics p in Model)
     {
-        <button type="button" class="btn btn-topics" id="@p.Id" onclick="location.href ='https://www.google.com/?gws_rd=ssl'">@p.Topic</button>
+        <button type="button" class="btn btn-topics" onclick="location.href='@Url.Action("Search","Search",  new { id = @p.Id })'">@p.Topic</button>    
     }
 </div>
