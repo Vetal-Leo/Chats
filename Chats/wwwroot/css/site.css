@@ -80,3 +80,8 @@ body {
     margin-top: 20px;
     background-image: url(../images/starsgray.jpg);
 }
+
+option {
+    height: 1cm;
+}
+

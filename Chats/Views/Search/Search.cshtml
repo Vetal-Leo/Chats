@@ -38,8 +38,37 @@
 <h5 style="margin-top:2cm; text-align:center">Все чаты по теме:</h5>
 <div style="display: flex; align-items: center; justify-content: center">
     <form class="form-inline">
-        <input class="form-control mr-sm-2" style="width:11cm" type="search" placeholder="Поиск чата " aria-label="Search"
-               onmouseover="this.style.background = 'red'">
-        <button class="btn btn-info my-2 my-sm-0" type="submit">Выбрать</button>
+        <input class="form-control mr-sm-2" style="width:9cm" type="search" placeholder="Поиск чата " aria-label="Search"
+               onfocus="openSelect()">
+        <button class="btn btn-info my-2 my-sm-0" type="submit" onclick="">Выбрать</button>
     </form>
 </div>
+
+<div style="display: block; margin: auto; width:10cm">
+    <select multiple class="form-control" id="Select" style="width:10cm; height:10cm; margin-top: 30px; visibility:hidden">
+        <option>1пппп</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+    </select>
+</div>
+
+@section scripts {
+    <script type="text/javascript">
+        function openSelect() {
+         $('#Select').css("visibility","visible");
+        }
+        function shutSelect(){
+         $('#Select').css("visibility","hidden");
+        }
+    </script>
+}

@@ -19,11 +19,6 @@
 
 
   <ItemGroup>
-    <Folder Include="wwwroot\images\" />
-  </ItemGroup>
-
-
-  <ItemGroup>
     <WCFMetadata Include="Connected Services" />
   </ItemGroup>
 
