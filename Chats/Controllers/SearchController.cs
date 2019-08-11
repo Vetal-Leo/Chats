@@ -16,7 +16,7 @@ namespace Chats.Controllers
         {
             db = context;
         }
-        [Authorize]
+        //  [Authorize]
         public async Task<IActionResult> Search(int id)
         {
             var topics = await db.Topics.ToListAsync();

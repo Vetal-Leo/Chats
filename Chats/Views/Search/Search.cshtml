@@ -3,30 +3,43 @@
     ViewData["Title"] = "Search";
 }
 
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm box-shadow mb-3 ">
-            <div class="container">
-                <a class="navbar-chats" asp-area="" asp-controller="Search" asp-action="Search" style="font-weight:600">@ViewData["Head"]</a>
-                &nbsp;&nbsp;&nbsp;
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
-                    <partial name="_LoginPartial" />
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Темы</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Android</a>
-                        </li>
-                    </ul>
-                </div>
+<header>
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm box-shadow mb-3 ">
+        <div class="container">
+            <a class="navbar-chats" asp-area="" asp-controller="Search" asp-action="Search" style="font-weight:600">@ViewData["Head"]</a>
+            &nbsp;&nbsp;&nbsp;
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                <partial name="_LoginPartial" />
+                <ul class="navbar-nav flex-grow-1">
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Темы</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Кабинет</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Android</a>
+                    </li>
+                </ul>
             </div>
-        </nav>
-    </header>
+        </div>
+    </nav>
+</header>
 
+<div style="display: block; margin: auto; width : 242px">
+    <button type="button" class="btn btn-success" style="margin-top: 50px">Создать новый открытый чат</button>
+    <button type="button" class="btn btn-danger" style="margin-top: 30px">Создать новый закрытый чат</button>
+</div>
 
-<h1>Search</h1>
-
+<h5 style="margin-top:2cm; text-align:center">Все чаты по теме:</h5>
+<div style="display: flex; align-items: center; justify-content: center">
+    <form class="form-inline">
+        <input class="form-control mr-sm-2" style="width:11cm" type="search" placeholder="Поиск чата " aria-label="Search"
+               onmouseover="this.style.background = 'red'">
+        <button class="btn btn-success my-2 my-sm-0" type="submit">Выбрать</button>
+    </form>
+</div>

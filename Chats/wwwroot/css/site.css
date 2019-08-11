@@ -11,8 +11,7 @@ a.navbar-chats {
     word-break: break-all;
     text-decoration: none;
     font-family: NC30_D;
-    font-style: italic;
-    font-size: 170%;
+    font-size: 130%;
     color: #7f60d0;
 }
 
@@ -56,8 +55,7 @@ body {
     /* Margin bottom by footer height */
     margin-bottom: 60px;
     background-image: url(../images/stars.jpg);
-    font-family: 'Times New Roman', Times, serif;
-    font-style: italic;
+    font-family: tahoma;
     font-size: 20px;
 }
 
@@ -73,7 +71,7 @@ body {
 
 @font-face {
     font-family: NC30_D;
-    src: url(../fonts/14704.ttf);
+    src: url(../fonts/482.ttf);
 }
 
 .btn-topics {
