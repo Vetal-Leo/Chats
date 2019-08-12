@@ -55,7 +55,7 @@ body {
     /* Margin bottom by footer height */
     margin-bottom: 60px;
     background-image: url(../images/stars.jpg);
-    font-family: tahoma;
+    font-family: Tahoma;
     font-size: 20px;
 }
 
@@ -74,6 +74,7 @@ body {
     src: url(../fonts/482.ttf);
 }
 
+
 .btn-topics {
     height: 2cm;
     width: 8cm;
@@ -81,7 +82,4 @@ body {
     background-image: url(../images/starsgray.jpg);
 }
 
-option {
-    height: 1cm;
-}
 

@@ -36,39 +36,32 @@
 </div>
 
 <h5 style="margin-top:2cm; text-align:center">Все чаты по теме:</h5>
-<div style="display: flex; align-items: center; justify-content: center">
+<div style="display: flex; align-items: center; justify-content: center;">
     <form class="form-inline">
-        <input class="form-control mr-sm-2" style="width:9cm" type="search" placeholder="Поиск чата " aria-label="Search"
-               onfocus="openSelect()">
-        <button class="btn btn-info my-2 my-sm-0" type="submit" onclick="">Выбрать</button>
+        <select class=" mr-sm-2" id="e2" style="width:10cm; height:13cm;">
+            <option value="AL">Alabama</option>
+            <option value="WY">Wyoming</option>
+            <option value="AL">Alabama</option>
+            <option value="WY">Wyoming</option>
+            <option value="AL">Alabama</option>
+            <option value="WY">Wyoming</option>
+            <option value="AL">Alabama</option>
+            <option value="WY">Wyoming</option>
+            <option value="AL">Alabama2</option>
+            <option value="WY">Wyoming2</option>
+            <option value="AL">Alabama2</option>
+            <option value="WY">Wyoming2</option>
+        </select>
+        <button class="btn btn-info my-2 my-sm-0" type="submit" style="margin-left:12px">Выбрать</button>
     </form>
 </div>
 
-<div style="display: block; margin: auto; width:10cm">
-    <select multiple class="form-control" id="Select" style="width:10cm; height:10cm; margin-top: 30px; visibility:hidden">
-        <option>1пппп</option>
-        <option>2</option>
-        <option>3</option>
-        <option>4</option>
-        <option>5</option>
-        <option>2</option>
-        <option>3</option>
-        <option>4</option>
-        <option>5</option>
-        <option>2</option>
-        <option>3</option>
-        <option>4</option>
-        <option>5</option>
-    </select>
-</div>
 
 @section scripts {
     <script type="text/javascript">
-        function openSelect() {
-         $('#Select').css("visibility","visible");
-        }
-        function shutSelect(){
-         $('#Select').css("visibility","hidden");
-        }
+        $("#e2").select2({
+            placeholder: "Поиск чата",
+            allowClear: true
+        });
     </script>
 }
