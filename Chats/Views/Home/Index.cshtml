@@ -30,11 +30,19 @@
         </div>
     </nav>
 </header>
+    <div class="row">
+        <div class="col-12">
+            <div style="height: 8cm; background: url(/images/firstpicture.jpg) no-repeat" />
+        </div>
+        <div class="col-12">
+            <h3 style="text-align:center;">Темы для чата</h3>
+            <div style="display: block; margin:auto; width : 7cm;">
+                @foreach (Topics p in Model)
+                {
+                    <button type="button" class="btn btn-topics" onclick="location.href='@Url.Action("Search","Search",  new { id = @p.Id })'">@p.Topic</button>
+                }
+            </div>
+        </div>
+    </div>
 
-<h2 style="text-align:center">Темы для чата</h2>
-<div style="display: block; margin: auto; width : 8cm;">
-    @foreach (Topics p in Model)
-    {
-        <button type="button" class="btn btn-topics" onclick="location.href='@Url.Action("Search","Search",  new { id = @p.Id })'">@p.Topic</button>    
-    }
-</div>
+

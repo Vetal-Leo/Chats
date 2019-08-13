@@ -76,8 +76,8 @@ body {
 
 
 .btn-topics {
-    height: 2cm;
-    width: 8cm;
+    height: 50px;
+    width: 7cm;
     margin-top: 20px;
     background-image: url(../images/starsgray.jpg);
 }
