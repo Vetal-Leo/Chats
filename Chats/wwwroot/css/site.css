@@ -10,7 +10,7 @@ a.navbar-chats {
     text-align: center;
     word-break: break-all;
     text-decoration: none;
-    font-family: NC30_D;
+    font-family: Machina;
     font-size: 130%;
     color: #7f60d0;
 }
@@ -70,8 +70,8 @@ body {
 }
 
 @font-face {
-    font-family: NC30_D;
-    src: url(../fonts/482.ttf);
+    font-family: Machina;
+    src: url(../fonts/Machina.ttf);
 }
 
 
