@@ -30,7 +30,9 @@
   } else {
     // Browser globals
     factory(jQuery);
-  }
+    }
+
+
 } (function (jQuery) {
   // This is needed so we can catch the AMD loader configuration and use it
   // The inner file should be wrapped (by `banner.start.js`) in a function that
@@ -43,7 +45,9 @@
   }
   var S2;(function () {
           if (!S2 || !S2.requirejs) {
-if (!S2) { S2 = {}; } else { require = S2; }
+              if (!S2) { S2 = {}; } else { require = S2; }
+
+
 /**
  * @license almond 0.3.3 Copyright jQuery Foundation and other contributors.
  * Released under MIT license, http://github.com/requirejs/almond/LICENSE
@@ -184,6 +188,8 @@ var requirejs, require, define;
 
         return name;
     }
+
+
 
     function makeRequire(relName, forceSync) {
         return function () {
@@ -476,6 +482,9 @@ var requirejs, require, define;
     };
 }());
 
+
+
+
 S2.requirejs = requirejs;S2.require = require;S2.define = define;
 }
 }());
@@ -542,6 +551,8 @@ S2.define('select2/utils',[
 
     return methods;
   }
+
+
 
   Utils.Decorate = function (SuperClass, DecoratorClass) {
     var decoratedMethods = getMethods(DecoratorClass);
@@ -849,6 +860,9 @@ S2.define('select2/results',[
 
   Utils.Extend(Results, Utils.Observable);
 
+
+
+
   Results.prototype.render = function () {
     var $results = $(
       '<ul class="select2-results__options" role="tree"></ul>'
@@ -964,16 +978,22 @@ S2.define('select2/results',[
       var $options = self.$results
         .find('.select2-results__option[aria-selected]');
 
+        
+        
       $options.each(function () {
         var $option = $(this);
 
-        var item = Utils.GetData(this, 'data');
-
+          var item = Utils.GetData(this, 'data');
+         
         // id needs to be converted to a string when comparing
         var id = '' + item.id;
+          if (item.element != null && id > -1 && item.element.value === "1") {
+              $($option).addClass("icon-lock");                              ///222
+          }
 
         if ((item.element != null && item.element.selected) ||
             (item.element == null && $.inArray(id, selectedIds) > -1)) {
+          
           $option.attr('aria-selected', 'true');
         } else {
           $option.attr('aria-selected', 'false');
@@ -982,7 +1002,7 @@ S2.define('select2/results',[
 
     });
   };
-
+   
   Results.prototype.showLoading = function (params) {
     this.hideLoading();
 
@@ -1003,7 +1023,7 @@ S2.define('select2/results',[
     this.$results.find('.loading-results').remove();
   };
 
-  Results.prototype.option = function (data) {
+  Results.prototype.option = function (data) {                    
     var option = document.createElement('li');
     option.className = 'select2-results__option';
 
@@ -1044,7 +1064,8 @@ S2.define('select2/results',[
       var val = attrs[attr];
 
       option.setAttribute(attr, val);
-    }
+      }
+    
 
     if (data.children) {
       var $option = $(option);
@@ -1076,7 +1097,7 @@ S2.define('select2/results',[
     } else {
       this.template(data, option);
     }
-
+      debugger
     Utils.StoreData(option, 'data', data);
 
     return option;
@@ -1213,6 +1234,7 @@ S2.define('select2/results',[
       } else if (nextTop - currentOffset < 0) {
         self.$results.scrollTop(nextOffset);
       }
+     
     });
 
     container.on('results:next', function () {
@@ -1411,9 +1433,13 @@ S2.define('select2/selection/base',[
 
   Utils.Extend(BaseSelection, Utils.Observable);
 
+
+
+
+
   BaseSelection.prototype.render = function () {
     var $selection = $(
-      '<span class="select2-selection" role="combobox" ' +
+      '<span class="select2-selection " role="combobox" ' +
       ' aria-haspopup="true" aria-expanded="false">' +
       '</span>'
     );
@@ -1769,6 +1795,10 @@ S2.define('select2/selection/multiple',[
   return MultipleSelection;
 });
 
+
+
+
+
 S2.define('select2/selection/placeholder',[
   '../utils'
 ], function (Utils) {
@@ -2082,6 +2112,10 @@ S2.define('select2/selection/search',[
     );
   };
 
+
+
+
+
   /**
    * This method will transfer the tabindex attribute from the rendered
    * selection to the search box. This allows for the search box to be used as
@@ -2204,6 +2238,10 @@ S2.define('select2/selection/eventRelay',[
 
   return EventRelay;
 });
+
+
+
+
 
 S2.define('select2/translation',[
   'jquery',
@@ -3093,6 +3131,11 @@ S2.define('select2/diacritics',[
   return diacritics;
 });
 
+
+
+
+
+
 S2.define('select2/data/base',[
   '../utils'
 ], function (Utils) {
@@ -3500,6 +3543,9 @@ S2.define('select2/data/array',[
   return ArrayAdapter;
 });
 
+
+
+
 S2.define('select2/data/ajax',[
   './array',
   '../utils',
@@ -3739,6 +3785,9 @@ S2.define('select2/data/tags',[
 
   return Tags;
 });
+
+
+
 
 S2.define('select2/data/tokenizer',[
   'jquery'
@@ -3994,6 +4043,10 @@ S2.define('select2/dropdown',[
 
   return Dropdown;
 });
+
+
+
+
 
 S2.define('select2/dropdown/search',[
   'jquery',
@@ -4688,6 +4741,11 @@ S2.define('select2/defaults',[
     this.reset();
   }
 
+
+
+
+
+
   Defaults.prototype.apply = function (options) {
     options = $.extend(true, {}, this.defaults, options);
 
@@ -5055,6 +5113,8 @@ S2.define('select2/options',[
     }
   }
 
+
+
   Options.prototype.fromElement = function ($e) {
     var excludedData = ['select2'];
 
@@ -5350,6 +5410,9 @@ S2.define('select2/core',[
     return method;
   };
 
+
+
+
   Select2.prototype._bindAdapters = function () {
     this.dataAdapter.bind(this, this.$container);
     this.selection.bind(this, this.$container);
@@ -5463,7 +5526,7 @@ S2.define('select2/core',[
     var self = this;
 
     this.on('open', function () {
-      self.$container.addClass('select2-container--open');
+        self.$container.addClass('select2-container--open');
     });
 
     this.on('close', function () {
@@ -5595,6 +5658,10 @@ S2.define('select2/core',[
     }
   };
 
+
+
+
+
   /**
    * Override the trigger method to automatically trigger pre-events when
    * there are events that can be prevented.
@@ -5662,7 +5729,7 @@ S2.define('select2/core',[
   };
 
   Select2.prototype.isOpen = function () {
-    return this.$container.hasClass('select2-container--open');
+      return this.$container.hasClass('select2-container--open');
   };
 
   Select2.prototype.hasFocus = function () {

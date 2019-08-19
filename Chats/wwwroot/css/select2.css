@@ -69,7 +69,9 @@
 .select2-results__option {
   padding: 3px;
   user-select: none;
-  -webkit-user-select: none; }
+  -webkit-user-select: none; 
+}
+
   .select2-results__option[aria-selected] {
     cursor: pointer; }
 
