@@ -1,0 +1,30 @@
+@font-face {
+  font-family: Lock;
+  src:  url(../fonts/lock.eot);
+  src:  url(../fonts/lock.eot) format('embedded-opentype'),
+    url(../fonts/lock.ttf) format('truetype'),
+    url(../fonts/lock.woff) format('woff'),
+    url(../fonts/lock.svg) format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: Tahoma, Lock;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    height: 37px;
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-lock:before {
+  content: "\e020";
+  color:brown;
+}
