@@ -19,6 +19,31 @@ namespace Chats.Data.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+            modelBuilder.Entity("Chats.Models.Allchats", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("LastVisit");
+
+                    b.Property<string>("Name");
+
+                    b.Property<bool>("Openness");
+
+                    b.Property<bool>("RemovalCandidate");
+
+                    b.Property<int>("TopicId");
+
+                    b.Property<string>("UserId");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("TopicId");
+
+                    b.ToTable("Allchats");
+                });
+
             modelBuilder.Entity("Chats.Models.Topics", b =>
                 {
                     b.Property<int>("Id")
@@ -195,6 +220,14 @@ namespace Chats.Data.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens");
+                });
+
+            modelBuilder.Entity("Chats.Models.Allchats", b =>
+                {
+                    b.HasOne("Chats.Models.Topics", "Topics")
+                        .WithMany()
+                        .HasForeignKey("TopicId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using Chats.Data;
 using Microsoft.AspNetCore.Authorization;
@@ -16,13 +17,17 @@ namespace Chats.Controllers
         {
             db = context;
         }
+       
         //  [Authorize]
         public async Task<IActionResult> Search(int id)
-        {
+        {           
             var topics = await db.Topics.ToListAsync();
             var topic = topics[id - 1].Topic;
             ViewData["Head"] = topic;
-            return View();
+
+            return View(await db.Allchats.ToListAsync());
         }
+
+       
     }
 }

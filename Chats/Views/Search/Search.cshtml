@@ -1,4 +1,5 @@
-﻿
+﻿@using Chats.Models
+@model IEnumerable<Allchats>
 @{
     ViewData["Title"] = "Search";
 }
@@ -39,7 +40,7 @@
 <div style="display: flex; align-items: center; justify-content: center">
     <form class="form-inline">
         <select class=" mr-sm-2" id="e2" style="width:10cm; height:13cm; ">
-            <option value="1">&nbsp;&nbsp;Alabama</option>
+            @*<option value="1">&nbsp;&nbsp;Alabama</option>
             <option value="1">&nbsp;&nbsp;Wyoming</option>
             <option value="1">&nbsp;&nbsp;Alabama</option>
             <option value="1">&nbsp;&nbsp;Wyoming</option>
@@ -50,7 +51,13 @@
             <option value="1">&nbsp;&nbsp;Ketay 5</option>
             <option value="1">&nbsp;&nbsp;Wyoming2</option>
             <option value="0">&nbsp;&nbsp;Alabama2</option>
-            <option value="0">&nbsp;&nbsp;Wyoming2</option>
+            <option value="0">&nbsp;&nbsp;Wyoming2</option>*@
+            @foreach (Allchats p in Model)
+            {
+               <option value="@Convert.ToInt32(p.Openness)">&nbsp;&nbsp;@p.Name</option>
+             
+                @*<button type="button" class="btn btn-topics" onclick="location.href='@Url.Action("Search","Search",  new { id = @p.Id })'">@p.Topic</button>*@
+            }
         </select>
         <button class="btn btn-info my-2 my-sm-0" type="submit" style="margin-left:12px;">Выбрать</button>
     </form>
@@ -63,5 +70,7 @@
             placeholder: "Поиск чата",
             allowClear: true
         });
+
+        
     </script>
 }

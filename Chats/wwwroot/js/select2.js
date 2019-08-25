@@ -986,8 +986,8 @@
                         var item = Utils.GetData(this, 'data');
 
                         // id needs to be converted to a string when comparing
-                        var id = '' + item.id;
-                        if (item.element != null && id > -1 && item.element.value === "1") {
+                        var id = '' + item.id;      
+                        if (item.element != null && id > -1 && item.element.value == 1) {
                             $($option).addClass("icon-lock").css("padding", "8px");                  ///222
                         }
 
@@ -1489,7 +1489,7 @@
                 });
 
                 container.on('selection:update', function (params) {
-                    if (self.$element[0].value === "1") {
+                    if (self.$element[0].value == 1) {
                         $(self.$selection[0]).html(
                             '<span id="lock" class="select2-selection__rendered  icon-lock" style="padding: 5px">'
                             + params.data[0].text + '</span>');

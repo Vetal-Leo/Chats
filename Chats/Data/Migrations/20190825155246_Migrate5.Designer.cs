@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Chats.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20190804155427_aspnet-Chats-43603796-2395-4CA2-9FA5-F06A28F9A9F6")]
-    partial class aspnetChats4360379623954CA29FA5F06A28F9A9F6
+    [Migration("20190825155246_Migrate5")]
+    partial class Migrate5
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -20,6 +20,31 @@ namespace Chats.Data.Migrations
                 .HasAnnotation("ProductVersion", "3.0.0-preview3.19153.1")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+            modelBuilder.Entity("Chats.Models.Allchats", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("LastVisit");
+
+                    b.Property<string>("Name");
+
+                    b.Property<bool>("Openness");
+
+                    b.Property<bool>("RemovalCandidate");
+
+                    b.Property<int>("TopicId");
+
+                    b.Property<string>("UserId");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("TopicId");
+
+                    b.ToTable("Allchats");
+                });
 
             modelBuilder.Entity("Chats.Models.Topics", b =>
                 {
@@ -197,6 +222,14 @@ namespace Chats.Data.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens");
+                });
+
+            modelBuilder.Entity("Chats.Models.Allchats", b =>
+                {
+                    b.HasOne("Chats.Models.Topics", "Topics")
+                        .WithMany()
+                        .HasForeignKey("TopicId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
