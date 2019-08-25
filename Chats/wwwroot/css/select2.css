@@ -4,8 +4,13 @@
     margin: 0;
     position: relative;
     vertical-align: middle;
-    font-family: Tahoma;
-    font-size: 21px;
+    font-family: Your;
+    font-size: 19px;
+}
+
+@font-face {
+    font-family: Your;
+    src: url(../fonts/Your.ttf);
 }
 
     .select2-container .select2-selection--single {
