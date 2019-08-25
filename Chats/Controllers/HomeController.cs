@@ -4,9 +4,9 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Chats.Models;
 using Chats.Data;
-using Microsoft.EntityFrameworkCore;
 
 namespace Chats.Controllers
 {
@@ -18,7 +18,7 @@ namespace Chats.Controllers
             db = context;
         }
         public async Task<IActionResult> Index()
-        {     
+        {
             return View(await db.Topics.ToListAsync());
         }
 
@@ -26,7 +26,7 @@ namespace Chats.Controllers
         {
             return View();
         }
-       
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

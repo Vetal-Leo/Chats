@@ -1,5 +1,5 @@
 ﻿@using Chats.Models
-@model IEnumerable<Allchats>
+@model IEnumerable<AppChats>
 @{
     ViewData["Title"] = "Search";
 }
@@ -52,7 +52,7 @@
             <option value="1">&nbsp;&nbsp;Wyoming2</option>
             <option value="0">&nbsp;&nbsp;Alabama2</option>
             <option value="0">&nbsp;&nbsp;Wyoming2</option>*@
-            @foreach (Allchats p in Model)
+            @foreach (AppChats p in Model)
             {
                <option value="@Convert.ToInt32(p.Openness)">&nbsp;&nbsp;@p.Name</option>
              

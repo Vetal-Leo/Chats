@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace Chats.Data.Migrations
+namespace Chats.Migrations
 {
-    public partial class Migrate5 : Migration
+    public partial class Migrate6 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

@@ -3,6 +3,10 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.0</TargetFramework>
     <UserSecretsId>aspnet-Chats-43603796-2395-4CA2-9FA5-F06A28F9A9F6</UserSecretsId>
+    <RootNamespace>Chats</RootNamespace>
+    <ApplicationIcon />
+    <Win32Resource />
+    <AssemblyName>Chats</AssemblyName>
   </PropertyGroup>
 
 

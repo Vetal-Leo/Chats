@@ -7,11 +7,11 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace Chats.Data.Migrations
+namespace Chats.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20190825155246_Migrate5")]
-    partial class Migrate5
+    [Migration("20190825224108_Migrate6")]
+    partial class Migrate6
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -21,7 +21,7 @@ namespace Chats.Data.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("Chats.Models.Allchats", b =>
+            modelBuilder.Entity("Chats.Models.AppChats", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -43,7 +43,7 @@ namespace Chats.Data.Migrations
 
                     b.HasIndex("TopicId");
 
-                    b.ToTable("Allchats");
+                    b.ToTable("Chats");
                 });
 
             modelBuilder.Entity("Chats.Models.Topics", b =>
@@ -224,7 +224,7 @@ namespace Chats.Data.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("Chats.Models.Allchats", b =>
+            modelBuilder.Entity("Chats.Models.AppChats", b =>
                 {
                     b.HasOne("Chats.Models.Topics", "Topics")
                         .WithMany()

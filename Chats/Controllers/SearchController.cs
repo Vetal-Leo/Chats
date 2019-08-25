@@ -17,17 +17,17 @@ namespace Chats.Controllers
         {
             db = context;
         }
-       
+
         //  [Authorize]
         public async Task<IActionResult> Search(int id)
-        {           
+        {
             var topics = await db.Topics.ToListAsync();
             var topic = topics[id - 1].Topic;
             ViewData["Head"] = topic;
 
-            return View(await db.Allchats.ToListAsync());
+            return View(await db.Chats.ToListAsync());
         }
 
-       
+
     }
 }
