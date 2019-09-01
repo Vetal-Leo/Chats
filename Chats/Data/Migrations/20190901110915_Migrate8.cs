@@ -2,7 +2,7 @@
 
 namespace Chats.Migrations
 {
-    public partial class Migrate6 : Migration
+    public partial class Migrate8 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
