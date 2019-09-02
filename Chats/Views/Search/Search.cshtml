@@ -38,14 +38,14 @@
 
 <h5 style="margin-top:2cm; text-align:center">Все чаты по теме:</h5>
 <div style="display: flex; align-items: center; justify-content: center">
-    <form class="form-inline">
-        <select class=" mr-sm-2" id="e2" style="width:10cm; height:13cm; ">
+    <form class="form-inline" method="post" action="/Search/Search">
+        <select class=" mr-sm-2" id="e2" style="width:10cm; height:13cm;" name="selectedchat">
             @foreach (AppChats p in Model)
             {
-               <option value="@Convert.ToInt32(p.Openness)">&nbsp;&nbsp;@p.Name</option>
-            }
-        </select>
-        <button class="btn btn-info my-2 my-sm-0" type="submit" style="margin-left:12px;">Выбрать</button>
+                <option value="@Convert.ToInt32(p.Openness) ඐ @p.Name ඐ @p.UserId">&nbsp;&nbsp;@p.Name</option>
+                }
+            </select>
+        <button class="btn btn-info my-2 my-sm-0" type="submit" style="margin-left:12px;" id="chatselection">Выбрать</button>
     </form>
 </div>
 
@@ -55,6 +55,11 @@
         $("#e2").select2({
             placeholder: "Поиск чата",
             allowClear: true
-        });      
+        });   
+
+       function fff() {
+            alert();
+        }
+
     </script>
 }

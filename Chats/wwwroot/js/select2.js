@@ -986,8 +986,9 @@
                         var item = Utils.GetData(this, 'data');
 
                         // id needs to be converted to a string when comparing
-                        var id = '' + item.id;      
-                        if (item.element != null && id > -1 && item.element.value == 1) {
+                        var id = '' + item.id;
+
+                        if (item.element != null && item.element.value[0] == 1) {
                             $($option).addClass("icon-lock").css("padding", "8px");                  ///222
                         }
 
@@ -1489,17 +1490,18 @@
                 });
 
                 container.on('selection:update', function (params) {
-                    if (self.$element[0].value == 1) {
+                    if (self.$element[0].value[0] == 1) {
                         $(self.$selection[0]).html(
                             '<span id="lock" class="select2-selection__rendered  icon-lock" style="padding: 5px">'
                             + params.data[0].text + '</span>');
+                        $("#chatselection").removeClass("btn-info").addClass("btn-danger").text("Отправить приглашение");
                     } else {
-                        $("#lock").removeClass("icon-lock");                                                          ///222                     
+                        $("#lock").removeClass("icon-lock");
+                        $("#chatselection").removeClass("btn-danger").addClass("btn-info").text("Выбрать");                                             ///222
                     }
                     self.update(params.data);
                 });
 
-                debugger
                 container.on('open', function () {
                     // When the dropdown is open, aria-expanded="true"
                     self.$selection.attr('aria-expanded', 'true');

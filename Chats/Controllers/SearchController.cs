@@ -28,6 +28,12 @@ namespace Chats.Controllers
             return View(await db.Chats.ToListAsync());
         }
 
+        [HttpPost]
+        public IActionResult Search(string selectedchat)
+        {
+            var tt = selectedchat.Split("ඐ");
 
+            return Redirect("/Chat/Chat");
+        }
     }
 }
